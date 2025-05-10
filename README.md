@@ -107,7 +107,7 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
-        GPIO led = GPIO.get("GPIO2"); // Adjust GPIO name as needed
+        GPIO led = GPIO.get("GPIO2");
 
         led.setDirection(GPIO.DIRECTION_OUT);
 
