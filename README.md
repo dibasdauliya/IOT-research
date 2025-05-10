@@ -1,3 +1,5 @@
+# IOT Microcontrollers Comparison and It's Performance with Python, JavaScript, and Java
+
 The ESP8266 and ESP32 are popular low-cost Wi-Fi microcontroller modules widely used in IoT projects. Both feature 32-bit processors and built-in Wi-Fi for network connectivity, making them ideal for remote sensing and control in smart devices ([makeradvisor.com](https://makeradvisor.com/esp32-vs-esp8266/#:~:text=The%20ESP32%20and%20ESP8266%20are,and%20Home%20Automation%20fields)). The ESP32 is a newer, more powerful successor to the ESP8266, adding a faster dual-core CPU, more memory, and Bluetooth capability, while the ESP8266 remains a cheaper and simpler option ([makeradvisor.com](https://makeradvisor.com/esp32-vs-esp8266/#:~:text=Both%20chips%20have%20a%2032,processor%20that%20runs%20at%2080MHz)[makeradvisor.com](https://makeradvisor.com/esp32-vs-esp8266/#:~:text=Price)). This report provides a detailed comparison of the two in terms of performance (CPU speed, memory, Wi-Fi capabilities, power consumption), cost, and development ease. It also examines their performance when running high-level languages – Python (MicroPython), JavaScript (Espruino), and Java (MicroEJ) – to transmit simple IoT signals. Real-world benchmark data from reputable sources is included, alongside simulated tests, to illustrate differences in latency, execution speed, and resource usage.
 
 ### CPU Processing Power
@@ -34,7 +36,7 @@ To illustrate, consider a simple task like toggling a GPIO pin or incrementing a
 
 ```python
 
-// This toggles the onboard LED every second.
+# This toggles the onboard LED every second.
 
 from machine import Pin
 
