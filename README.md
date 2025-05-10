@@ -49,7 +49,7 @@ from machine import Pin
 
 from time import sleep
 
-led \= Pin(2, Pin.OUT)  \# D2 GPIO
+led = Pin(2, Pin.OUT)  # D2 GPIO
 
 while True:
 
@@ -72,21 +72,21 @@ It may surprise some, but you can use JavaScript on microcontrollers like ESP826
 **Practical use**: Writing IoT logic in JavaScript could be appealing if you’re a web developer. You can toggle pins or send web requests using a syntax you know. For example, toggling an LED with `digitalWrite(D2, 1);` in JS is possible. But keep in mind the limited debugging and library support – MicroPython and NodeMCU Lua have much larger communities on these chips than JavaScript does. JavaScript engines also tend to be memory-hungry (even more than Python or Lua). The ESP8266 with JS would be restricted to very simple logic (due to \~20 KB free) ([electronics.stackexchange.com](https://electronics.stackexchange.com/questions/286328/esp8266-elua-nodemcu-vs-micropython#:~:text=3,80k%20of%20128k%20RAM%20available)).
 
 ```js
-
 // Pressing the button sends a signal to a web server and toggles an LED
 
-pinMode(D2, 'input\_pullup');
+pinMode(D2, "input_pullup");
 
-pinMode(D5, 'output');
+pinMode(D5, "output");
 
-setWatch(function () {
+setWatch(
+  function () {
+    digitalWrite(D5, !digitalRead(D5)); // Toggle LED
 
-  digitalWrite(D5, \!digitalRead(D5)); // Toggle LED
-
-  require("http").get("http://example.com/button-pressed");
-
-}, D2, { edge: "falling", debounce: 50, repeat: true });
-
+    require("http").get("http://example.com/button-pressed");
+  },
+  D2,
+  { edge: "falling", debounce: 50, repeat: true }
+);
 ```
 
 Bottom line: Running JavaScript on ESP8266 is possible but with tight resources; on ESP32 it’s more comfortable but still niche. Most developers choose MicroPython or C over JS on these chips simply due to better support. But if JS is used, expect similar constraints as with MicroPython: about 100× slower than native and high memory usage, with ESP32 mitigating these with brute force (faster CPU, more RAM).
@@ -105,11 +105,11 @@ import ej.device.io.GPIO;
 
 public class Main {
 
-    public static void main(String\[\] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
-        GPIO led \= GPIO.get("GPIO2"); // Adjust GPIO name as needed
+        GPIO led = GPIO.get("GPIO2"); // Adjust GPIO name as needed
 
-        led.setDirection(GPIO.DIRECTION\_OUT);
+        led.setDirection(GPIO.DIRECTION_OUT);
 
         while (true) {
 
