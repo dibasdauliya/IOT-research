@@ -1,0 +1,13 @@
+red LED = board powered
+
+Serial.println("text"); → shows on monitor
+
+Use Tools > Serial monitor to see output
+
+built-in LED usually on GPIO 2
+Safe GPIOs for input/output: 2, 4, 5, 12-15, 18-19, 21-23, 25-27, 32-33
+AVOID boot-mode conflict pins: 0, 2, 15 (only if not handled properly)
+
+don’t forget pinMode() in setup()
+
+use INPUT_PULLUP for buttons without resistor
